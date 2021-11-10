@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Items/Candy/candycane.png" type="Texture" id=2]
-[ext_resource path="res://Items/CandyCane.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Items/Candy/swirl_blue.png" type="Texture" id=2]
+[ext_resource path="res://Items/Swirl.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 resource_name = "animate"
-length = 0.8
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
@@ -15,35 +14,33 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 15.0, 0.0, -15.0 ]
+"values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 8.0
-height = 12.0
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.0
 
-[node name="CandyCane" instance=ExtResource( 1 )]
+[node name="Swirl" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-rotation = 0.0165074
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="1"]
-anims/animate = SubResource( 1 )
+anims/animate = SubResource( 2 )
 
 [node name="Hurtbox" parent="." index="2"]
 collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Stats" parent="." index="3"]
-points = 5
+points = 3
 
 [editable path="Hurtbox"]

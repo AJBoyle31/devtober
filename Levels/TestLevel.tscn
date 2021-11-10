@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/GroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Levels/ForeParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Items/Bean.tscn" type="PackedScene" id=8]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Items/Swirl.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Items/CandyCane.tscn" type="PackedScene" id=11]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -35,8 +37,40 @@ position = Vector2( 1008, 264 )
 [node name="ForeParallaxBackground" parent="." instance=ExtResource( 7 )]
 layer = 2
 
-[node name="Bean" parent="." instance=ExtResource( 8 )]
-position = Vector2( 233, 221 )
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Bean" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 236, 224 )
+bean_color = "blue"
+
+[node name="Bean2" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 256, 224 )
 bean_color = "pink"
+
+[node name="Bean3" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 276, 224 )
+bean_color = "red"
+
+[node name="Bean4" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 256, 204 )
+bean_color = "purple"
+
+[node name="Swirl" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 460, 100 )
+
+[node name="Swirl2" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 484, 100 )
+swirl_color = "orange"
+
+[node name="Swirl3" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 484, 124 )
+swirl_color = "red"
+
+[node name="Swirl4" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 460, 124 )
+swirl_color = "yellow"
+
+[node name="CandyCane" parent="Items" instance=ExtResource( 11 )]
+position = Vector2( 624, 164 )
 
 [node name="HUD" parent="." instance=ExtResource( 9 )]

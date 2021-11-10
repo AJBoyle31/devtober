@@ -3,14 +3,19 @@ class_name Item
 
 var CandyCollectedEffect = preload("res://Effects/CandyCollectedEffect.tscn")
 
-export (String, "blue", "green", "orange", "pink", "purple", "red", "white", "yellow") var bean_color
-
+var item_color = ""
 var effect_color = ""
 
-func _ready():
-	determine_effect_color()
+onready var animationPlayer = $AnimationPlayer
+onready var sprite = $Sprite
+onready var stats = $Stats
 
-func create_bean_collected_effect():
+func _ready():
+	animationPlayer.play("animate")
+	
+
+func create_item_collected_effect():
+	determine_effect_color()
 	var candyEffect = CandyCollectedEffect.instance()
 	candyEffect.color = effect_color
 	get_parent().add_child(candyEffect)
@@ -18,8 +23,8 @@ func create_bean_collected_effect():
 	queue_free()
 
 func determine_effect_color() -> void:
-	match bean_color:
-		"blue", "purple":
+	match item_color:
+		"blue", "purple", "teal":
 			effect_color = "blue"
 		"green", "white":
 			effect_color = "green"
@@ -29,5 +34,7 @@ func determine_effect_color() -> void:
 			effect_color = "pink"
 
 
-func _on_Hurtbox_area_entered(_area):
-	create_bean_collected_effect()
+
+func _on_Hurtbox_area_entered(area):
+	create_item_collected_effect()
+	Data.score += stats.points

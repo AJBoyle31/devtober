@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 export var SPEED: int = 150
 const GRAVITY: int = 300
 const JUMP: int = 200
@@ -13,8 +14,10 @@ onready var animationPlayer = $AnimationPlayer
 onready var sprite = $Sprite
 
 
+
 func _ready():
-	pass # Replace with function body.
+	sprite.texture = load("res://Assets/Dinos/" + Data.dino_color + "-dino.png")
+	Data.connect("change_dino_color", self, "update_dino_color")
 
 
 func _physics_process(_delta):
@@ -44,7 +47,13 @@ func flip_player(_move_vec: Vector2):
 		sprite.scale.x = -1
 
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "kick":
 		kicking = false
+
+
+func update_dino_color(_color):
+	sprite.texture = load("res://Assets/Dinos/" + _color + "-dino.png")
+
+
+

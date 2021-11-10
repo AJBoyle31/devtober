@@ -43,6 +43,7 @@ collision_mask = 4
 rotation = 2.0944
 shape = SubResource( 2 )
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[node name="Stats" parent="." index="3"]
+points = 2
 
 [editable path="Hurtbox"]

@@ -8,10 +8,8 @@ class_name Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Data.total_score = 0
 
 func _process(_delta):
-	if Input.is_action_just_pressed("restart"):
-		#get_tree().reload_current_scene()
-		pass
+	pass
 
