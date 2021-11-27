@@ -12,7 +12,7 @@ var jumping: bool = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var sprite = $Sprite
-
+onready var dinoKickHitbox = $DinoKickHitbox
 
 
 func _ready():
@@ -43,8 +43,10 @@ func _physics_process(_delta):
 func flip_player(_move_vec: Vector2):
 	if _move_vec.x > 0.01:
 		sprite.scale.x = 1
+		dinoKickHitbox.scale.x = 1
 	elif _move_vec.x < -0.01:
 		sprite.scale.x = -1
+		dinoKickHitbox.scale.x = -1
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

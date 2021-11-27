@@ -9,7 +9,7 @@ signal change_dino_color
 signal change_score
 
 func _ready():
-	print(total_score)
+	#print(total_score)
 	total_score = 0
 	update_score(total_score)
 

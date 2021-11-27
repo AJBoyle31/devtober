@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Tilemap/TX Village Props.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 64, 19.0432, 17.7044, 72.5733, 18.1867, 96, 64 )
+points = PoolVector2Array( 81.8432, 64, 12.1844, 64, 12.1844, 27.7547, 81.8432, 27.7547 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "Large Pumpkin"

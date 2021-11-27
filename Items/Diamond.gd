@@ -25,7 +25,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_Hurtbox_area_entered(_area):
-	print(_area.name)
+	#print(_area.name)
 	if _area.name == "PlayerHitbox":
 		make_diamond_disappear_effect()
 	

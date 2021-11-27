@@ -12,7 +12,7 @@ func create_diamond():
 	var diamond = Diamond.instance()
 	get_parent().add_child(diamond)
 	diamond.global_position = global_position
-	print("chest " + str(global_position))
+	#print("chest " + str(global_position))
 
 
 func _on_ChestHurtbox_area_entered(_area):
